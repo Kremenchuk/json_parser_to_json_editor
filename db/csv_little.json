@@ -22,9 +22,6 @@
         "name": "Количество в упаковке",
         "code": "kol_v_upakovke",
         "type": "text"
-      },
-      {
-        "enum": "type"
       }
     ]
   }
