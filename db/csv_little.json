@@ -1,0 +1,32 @@
+{
+  "settings": {
+    "header": {
+      "present": true,
+      "start_row": 1
+    }
+  },
+  "product_attribute": {
+    "auto_create": true,
+    "list": [
+      {
+        "name": "Размер листа",
+        "code": "razmer",
+        "type": "text"
+      },
+      {
+        "name": "Удельный вес",
+        "code": "udelniy_ves",
+        "type": "text"
+      },
+      {
+        "name": "Количество в упаковке",
+        "code": "kol_v_upakovke",
+        "type": "text"
+      },
+      {
+        "enum": "type"
+      }
+    ]
+  }
+}
+

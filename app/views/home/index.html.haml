@@ -1,0 +1,36 @@
+%h1 Hello
+%p
+  =link_to 'Parse json', parser_path, remote: true, id: 'link_to_parse'
+
+#editor_holder
+
+
+:coffee
+  $(document).ready ->
+    $('#link_to_parse').on("ajax:success", (e, data, status, xhr) ->
+      console.log data
+      new JSONEditor(document.getElementById('editor_holder'),{
+      theme: 'bootstrap3',
+      iconlib: "fontawesome4",
+      schema: data[0],
+      startval: data[1],
+      disable_properties: true,
+      disable_edit_json: true,
+      disable_array_reorder: true,
+      })
+    ).on "ajax:error", (e, xhr, status, error) ->
+    #JSONEditor.defaults.editors.object.options.collapsed = true;
+
+:scss
+  #editor_holder button{
+    background-color: #008cba;
+    color: white;
+  }
+
+  h3 .btn-group {
+    float: left !important;
+    padding-right: 10px;
+  }
+  .well table {
+    width: 100% !important;
+  }

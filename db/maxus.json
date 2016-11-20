@@ -1,0 +1,158 @@
+{
+  "product_attribute": {
+    "source": {
+      "type": "list",
+      "list": {
+        "path": ["КоммерческаяИнформация", "Классификатор", "Свойства", "Свойство"]
+      }
+    },
+    "code": {
+      "mapping": {
+        "8fdcb88c-06ed-11e2-bab9-001517ecc94c": "fd_shirinamm",
+        "8fdcb893-06ed-11e2-bab9-001517ecc94c": "fd_vesnetto",
+        "8fdcb8aa-06ed-11e2-bab9-001517ecc94c": "fd_sposobkreplenija",
+        "49c94512-7410-11e5-a79f-00155d00241f": "fd_usbport",
+        "8fdcb896-06ed-11e2-bab9-001517ecc94c": "fd_svetovojpotoklm",
+        "8fdcb88e-06ed-11e2-bab9-001517ecc94c": "fd_diametrmm",
+        "430b2cac-7410-11e5-a79f-00155d00241f": "fd_izmeneniecvetovojtemperatur",
+        "8fdcb89e-06ed-11e2-bab9-001517ecc94c": "fd_temperaturasvetak",
+        "8fdcb88a-06ed-11e2-bab9-001517ecc94c": "fd_dimming",
+        "bb16d163-5a22-11e6-b36a-00155d002340": "meta_keyword",
+        "8fdcb8ac-06ed-11e2-bab9-001517ecc94c": "fd_kojefficientmoschnostipf",
+        "3a8cddda-7410-11e5-a79f-00155d00241f": "fd_izmeneniejarkosti",
+        "8fdcb887-06ed-11e2-bab9-001517ecc94c": "fd_nominalnajamoschnostw",
+        "8fdcb898-06ed-11e2-bab9-001517ecc94c": "fd_jenergojeffektivnostsvetova",
+        "8fdcb8a8-06ed-11e2-bab9-001517ecc94c": "fd_tiprasseivatelja",
+        "8fdcb8b6-06ed-11e2-bab9-001517ecc94c": "fd_temperaturnyjrezhimjeksplua",
+        "3f627f62-cef3-11e4-8dfc-00155d00241f": "fd_komplektpostavki",
+        "8fdcb89d-06ed-11e2-bab9-001517ecc94c": "fd_indekscvetoperedachira",
+        "2486729b-7410-11e5-a79f-00155d00241f": "fd_tipvykljucvhatelja",
+        "8fdcb8af-06ed-11e2-bab9-001517ecc94c": "fd_klassjenergopotreblenija",
+        "f5955be9-06f9-11e2-bab9-001517ecc94c": "fd_datchikosveschennosti",
+        "9dab7a59-3d44-11e3-a27a-002590983384": "fd_diapazonrabochegonaprjazhen",
+        "c8df5e23-5a22-11e6-b36a-00155d002340": "meta_description",
+        "8fdcb8a6-06ed-11e2-bab9-001517ecc94c": "fd_tipcokolja",
+        "754e8e16-2802-11e2-bea5-001517ecc94c": "fd_analogln",
+        "8fdcb899-06ed-11e2-bab9-001517ecc94c": "fd_materialkorpusa",
+        "0fc21566-cef3-11e4-8dfc-00155d00241f": "fd_gabaritnyerazmery",
+        "8fdcb89c-06ed-11e2-bab9-001517ecc94c": "fd_stepenzaschity",
+        "f67a0b36-06e3-11e2-bab9-001517ecc94c": "fd_naprjazheniev",
+        "8fdcb8a1-06ed-11e2-bab9-001517ecc94c": "fd_formfaktor",
+        "8fdcb89f-06ed-11e2-bab9-001517ecc94c": "fd_tipsvetodioda",
+        "8fdcb8ad-06ed-11e2-bab9-001517ecc94c": "fd_sroksluzhbych",
+        "8fdcb8a3-06ed-11e2-bab9-001517ecc94c": "fd_silatokama",
+        "8fdcb8b0-06ed-11e2-bab9-001517ecc94c": "fd_garantijnyjsrok",
+        "8fdcb8a4-06ed-11e2-bab9-001517ecc94c": "fd_ugolrasseivanija",
+        "a7ec39f2-5a22-11e6-b36a-00155d002340": "meta_title",
+        "8fdcb8ae-06ed-11e2-bab9-001517ecc94c": "fd_cvetkorpusa",
+        "8fdcb88b-06ed-11e2-bab9-001517ecc94c": "fd_vysotamm",
+        "f67a0b32-06e3-11e2-bab9-001517ecc94c": "mgs_brand"
+      }
+    },
+    "description": "",
+    "property_type": {
+      "path": ["ТипыЗначений","ТипЗначений","Тип"],
+      "mapping": {
+        "default": "text",
+        "Строка": "text",
+        "Число": "numeric",
+        "Дата": "date",
+        "ДатаВремя": "date",
+        "Справочник": {
+          "single": "drop_down",
+          "multi": "multi_select"
+        },
+        "Булево": "boolean"
+      }
+    },
+    "directory": {
+      "multi": [
+        "Множественное"
+      ],
+      "values": {
+        "path": ["ТипыЗначений","ТипЗначений","ВариантыЗначений","ВариантЗначения"],
+        "id": "Ид",
+        "value": "Значение"
+      }
+    }
+  },
+  "product_template": {
+    "source": {
+      "type": "property",
+      "requisite": {},
+      "property": {
+        "id": "ef6b62ea-5a22-11e6-b36a-00155d002340"
+      }
+    }
+  },
+  "product_category": {
+    "source": {
+      "type": "property",
+      "tree": {},
+      "requisite": {},
+      "property":{
+        "id": "d2c3ae32-5a21-11e6-b36a-00155d002340"
+      }
+    }
+  },
+  "product": {
+    "source": {
+      "type": "list",
+      "list": {
+        "path": ["КоммерческаяИнформация", "Каталог", "Товары", "Товар"]
+      }
+    },
+    "name": {
+      "source": {
+        "type": "property",
+        "requisite": {
+          "name": "Полное наименование"
+        },
+        "property": {
+          "id": "54a6d07b-5a24-11e6-b36a-00155d002340"
+        }
+      }
+    },
+    "kind": {
+      "source": {
+        "type":"requisite",
+        "requisite": {},
+        "property": {},
+        "mapping": {
+          "default": "simple"
+        }
+      }
+    },
+    "visibility": {
+      "source": {
+        "type": "property",
+        "requisite": {
+          "name": ""
+        },
+        "property": {
+          "id": "dadff09c-5a22-11e6-b36a-00155d002340"
+        },
+        "mapping": {
+          "default": "disable",
+          "3507e0b6-5ae6-11e6-b36a-00155d002340": "visible",
+          "65dc00ff-5ae6-11e6-b36a-00155d002340": "search_only"
+        }
+      }
+    },
+    "media": {
+      "source": {
+        "type": "storage",
+        "property": {},
+        "storage": {
+          "point": "maxus-images",
+          "rule": "sku-with-suffix"
+        }
+      }
+    },
+    "category":{
+      "property":{
+        "id": "d2c3ae32-5a21-11e6-b36a-00155d002340"
+      }
+    }
+  }
+}

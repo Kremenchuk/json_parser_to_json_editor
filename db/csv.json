@@ -1,0 +1,460 @@
+{
+  "settings": {
+    "header": {
+      "present": true,
+      "start_row": 1
+    }
+  },
+  "product_attribute": {
+    "auto_create": true,
+    "id": "code",
+    "name": "name",
+    "code": "code",
+    "type": "type",
+    "description": "description",
+    "data_type" : {
+      "default" : "text"
+    },
+    "list": [
+      {
+        "name": "Размер листа",
+        "code": "razmer",
+        "type": "text"
+      },
+      {
+        "name": "Удельный вес",
+        "code": "udelniy_ves",
+        "type": "text"
+      },
+      {
+        "name": "Количество в упаковке",
+        "code": "kol_v_upakovke",
+        "type": "text"
+      },
+      {
+        "name": "КМП",
+        "code": "kmp",
+        "type": "text"
+      },
+      {
+        "name": "Снижение шума",
+        "code": "snizhenie_shuma",
+        "type": "text"
+      },
+      {
+        "name": "Эффектиновность на металле",
+        "code": "efectivnost_na_metale",
+        "type": "text"
+      },
+      {
+        "name": "Толщина",
+        "code": "tolschina",
+        "type": "price"
+      },
+      {
+        "name": "Теплопроводность",
+        "code": "teploprovodnost",
+        "type": "text"
+      },
+      {
+        "name": "Звукоизоляция (DIN 4109)",
+        "code": "zvukoizoljacija",
+        "type": "text"
+      },
+      {
+        "name": "Коэффициент звукопоглощения",
+        "code": "koef_zvukopoglocsh",
+        "type": "text"
+      },
+      {
+        "name": "Объём",
+        "code": "obyem",
+        "type": "text"
+      },
+      {
+        "name": "Укрывистость",
+        "code": "ukryvistost",
+        "type": "text"
+      },
+      {
+        "name": "Толщина слоя",
+        "code": "tolschina_sloya",
+        "type": "text"
+      },
+      {
+        "name": "Время высыхания",
+        "code": "vremya_vysyhaniya",
+        "type": "text"
+      },
+      {
+        "name": "Цвет",
+        "code": "cvet",
+        "type": "multi_select"
+      },
+      {
+        "name": "Основа материала",
+        "code": "osnova",
+        "type": "multi_select"
+      },
+      {
+        "name": "Длина рулона",
+        "code": "kol_metro_v_rulone",
+        "type": "text"
+      },
+      {
+        "name": "Высота рулона",
+        "code": "visota_rulona",
+        "type": "text"
+      },
+      {
+        "name": "Площадь",
+        "code": "square",
+        "type": "price"
+      },
+      {
+        "name": "Бренд",
+        "code": "manufacturer",
+        "type": "multi_select"
+      },
+      {
+        "name": "Область применения",
+        "code": "application_scope",
+        "type": "multi_select"
+      },
+      {
+        "name": "Video URL",
+        "code": "videoid",
+        "type": "text"
+      },
+      {
+        "name": "Area",
+        "code": "area",
+        "type": "text"
+      },
+      {
+        "name": "Base Coefficient",
+        "code": "base_coef",
+        "type": "text"
+      },
+      {
+        "name": "Impact Coefficient",
+        "code": "impact_coef",
+        "type": "text"
+      },
+      {
+        "name": "Car noise absorption effectiveness",
+        "code": "noise_absorption_effectiveness",
+        "type": "text"
+      },
+      {
+        "name": "Is Car",
+        "code": "is_car",
+        "type": "drop_down"
+      },
+      {
+        "name": "Материал вала",
+        "code": "material vala",
+        "type": "multi_select"
+      },
+      {
+        "name": "Материал ручки",
+        "code": "material_ruchki",
+        "type": "multi_select"
+      },
+      {
+        "name": "Расход",
+        "code": "raskhod",
+        "type": "text"
+      },
+      {
+        "name": "Основа аэрозольного клея",
+        "code": "osnova_aerozolnogo_kleya",
+        "type": "multi_select"
+      }
+    ]
+  },
+  "product_template": {
+    "auto_create": true,
+    "column": {
+      "source": "header",
+      "value": "ProductTemplate"
+    }
+  },
+  "product_category": {
+    "auto_create": true,
+    "column": {
+      "source": "header",
+      "value": "category_ids",
+      "split_symbol": {
+        "way": "/",
+        "different_ways": ","
+      }
+    }
+  },
+  "product": {
+    "auto_create": true,
+    "id": {
+      "source": "header",
+      "value": "SKU"
+    },
+    "sku": {
+      "source": "header",
+      "value": "SKU"
+    },
+    "name": {
+      "source": "header",
+      "value": "Name"
+    },
+    "product_attributes": {
+      "source": "header",
+      "mapping":{
+        "multi_select": {
+          "split_symbol": ","
+        }
+      },
+      "columns": [
+        {
+          "code": "razmer",
+          "column": 15
+        },
+        {
+          "code": "udelniy_ves",
+          "column": 16
+        },
+        {
+          "code": "kol_v_upakovke",
+          "column": 17
+        },
+        {
+          "code": "kmp",
+          "column": "42"
+        },
+        {
+          "code": "snizhenie_shuma",
+          "column": 43
+        },
+        {
+          "code": "efectivnost_na_metale",
+          "column": 44
+        },
+        {
+          "code": "tolschina",
+          "column": 28
+        },
+        {
+          "code": "teploprovodnost",
+          "column": 46
+        },
+        {
+          "code": "zvukoizoljacija",
+          "column": 47
+        },
+        {
+          "code": "koef_zvukopoglocsh",
+          "column": 45
+        },
+        {
+          "code": "obyem",
+          "column": 48
+        },
+        {
+          "code": "ukryvistost",
+          "column": 49
+        },
+        {
+          "code": "tolschina_sloya",
+          "column": 50
+        },
+        {
+          "code": "vremya_vysyhaniya",
+          "column": 51
+        },
+        {
+          "code": "cvet",
+          "column": 52
+        },
+        {
+          "code": "osnova",
+          "column": 53
+        },
+        {
+          "code": "kol_metro_v_rulone",
+          "column": 54
+        },
+        {
+          "code": "visota_rulona",
+          "column": 55
+        },
+        {
+          "code": "square",
+          "column": 27
+        },
+        {
+          "code": "manufacturer",
+          "column": 29
+        },
+        {
+          "code": "application_scope",
+          "column": 13
+        },
+        {
+          "code": "videoid",
+          "column": 14
+        },
+        {
+          "code": "area",
+          "column": 23
+        },
+        {
+          "code": "base_coef",
+          "column": 24
+        },
+        {
+          "code": "impact_coef",
+          "column": 25
+        },
+        {
+          "code": "noise_absorption_effectiveness",
+          "column": 26
+        },
+        {
+          "code": "is_car",
+          "column": 30
+        },
+        {
+          "code": "material vala",
+          "column": 56
+        },
+        {
+          "code": "material_ruchki",
+          "column": 57
+        },
+        {
+          "code": "raskhod",
+          "column": 58
+        },
+        {
+          "code": "osnova_aerozolnogo_kleya",
+          "column": 59
+        }
+      ]
+    },
+    "visibility": {
+      "source": "header",
+      "value": "Visibility",
+      "default": "visible"
+    },
+    "kind": {
+      "source": "header",
+      "value": "Type",
+      "default": "simple"
+    },
+    "media": {
+      "source": "header",
+      "storage": {
+        "point": "csv-images"
+      },
+      "list": [
+        {
+          "column": "image"
+        },
+        {
+          "column": "small_image"
+        },
+        {
+          "column": "thumbnail"
+        }
+      ]
+    }
+  },
+  "stock": {
+    "auto_create": true,
+    "list": [
+      {
+        "name": "Default",
+        "code": "default"
+      }
+    ]
+  },
+  "quantity": {
+    "auto_create": true,
+    "product_id": "sku",
+    "columns": [
+      {
+        "source": "header",
+        "value": "qty",
+        "stock_code": "default"
+      }
+    ]
+  },
+  "price_column": {
+    "auto_create": true,
+    "name": "name",
+    "list": [
+      {
+        "name": "Default",
+        "currency_code": "UAH"
+      }
+    ],
+    "currencies": {
+      "list": [
+        {
+          "name": "Гривня",
+          "code": "UAH"
+        }
+      ]
+    }
+  },
+  "price_value": {
+    "auto_create": true,
+    "product_id": "sku",
+    "columns":[
+      {
+        "source": "header",
+        "value": "price",
+        "price_column_name": "Default"
+      }
+    ]
+  },
+  "order": {
+    "auto_create": true,
+    "id": "order_id",
+    "source": {
+      "type": "query",
+      "query": "",
+      "slaves": {
+        "order_products": {
+          "source": "query",
+          "query": ""
+        },
+        "order_total": {
+          "source": "query",
+          "query": ""
+        },
+        "customers": {
+          "source": "query",
+          "pre_query": "",
+          "query": ""
+        }
+      }
+    },
+    "order_products": {
+      "source": "slave",
+      "slave": {
+        "field": "order_products"
+      }
+    },
+    "order_total": {
+      "source": "slave",
+      "slave": {
+        "field": "order_total"
+      }
+    },
+    "customers": {
+      "source": "slave",
+      "slave": {
+        "field": "customers"
+      }
+    }
+  }
+}
