@@ -1,0 +1,135 @@
+{
+  "version": ["КоммерческаяИнформация","ДатаФормирования"],
+  "settings": {
+    "allow_domain": "*",
+    "zip": "no",
+    "max_file_size": 65536
+  },
+  "product_attribute": {
+    "auto_create": true,
+    "id": "Ид",
+    "name": "Наименование",
+    "description": "Описание"
+  },
+  "product_template": {
+    "auto_create": true,
+    "id": "Ид",
+    "name": "Наименование",
+    "default": {
+      "group": "Imported"
+    }
+  },
+  "product_category": {
+    "auto_create": true,
+    "id": "Ид",
+    "name": "Наименование"
+  },
+  "product": {
+    "auto_create": true,
+    "id": "Ид",
+    "sku": "Артикул",
+    "requisites": {
+      "path": [
+        "ЗначенияРеквизитов",
+        "ЗначениеРеквизита"
+      ],
+      "name": "Наименование",
+      "value": "Значение"
+    },
+    "properties": {
+      "path": [
+        "ЗначенияСвойств",
+        "ЗначенияСвойства"
+      ],
+      "value": "Значение"
+    },
+    "category":{
+      "tree":{
+        "path": ["Группы","Ид"]
+      }
+    }
+  },
+  "stock": {
+    "auto_create": true,
+    "source": {
+      "type": "list",
+      "list": {
+        "path": ["КоммерческаяИнформация","ПакетПредложений","Склады","Склад"]
+      }
+    },
+    "id": {
+      "field":"Ид"
+    },
+    "name": {
+      "field": "Наименование"
+    }
+  },
+  "quantity": {
+    "auto_create": true,
+    "source": {
+      "type": "list",
+      "list": {
+        "path": ["КоммерческаяИнформация","ПакетПредложений","Предложения","Предложение"]
+      }
+    },
+    "product": {
+      "type":"id",
+      "id": "Ид",
+      "barcode": "Штрихкод"
+    },
+    "stock":{
+      "path": ["Склад"],
+      "id": "ИдСклада",
+      "value": "КоличествоНаСкладе"
+    },
+    "qty": {
+      "id": "Количество",
+      "stock": "default"
+    }
+  },
+  "price_column": {
+    "auto_create": true,
+    "source": {
+      "type": "list",
+      "list": {
+        "path": ["КоммерческаяИнформация","ПакетПредложений","ТипыЦен","ТипЦены"]
+      }
+    },
+    "id": {
+      "field":"Ид"
+    },
+    "name": {
+      "field": "Наименование"
+    },
+    "currency": {
+      "field":"Валюта",
+      "mapping": {
+        "import": {
+          "грн": "UAH"
+        },
+        "export": {
+          "UAH": "грн"
+        }
+      }
+    }
+  },
+  "price_value": {
+    "auto_create": true,
+    "source": {
+      "type": "list",
+      "list": {
+        "path": ["КоммерческаяИнформация","ПакетПредложений","Предложения","Предложение"]
+      }
+    },
+    "product": {
+      "type":"id",
+      "id": "Ид",
+      "barcode": "Штрихкод"
+    },
+    "price":{
+      "path": ["Цены","Цена"],
+      "id": "ИдТипаЦены",
+      "value": "ЦенаЗаЕдиницу"
+    }
+  }
+}

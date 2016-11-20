@@ -1,6 +1,5 @@
 module JsonParser
-  def self.parse_json
-    incoming_json = JSON.parse(File.open(Rails.root.join('db', 'csv_little.json')).read)
+  def self.parse_json(incoming_json)
     return [create_json_schema(incoming_json, 'CSV json editor'), incoming_json]
   end
 
