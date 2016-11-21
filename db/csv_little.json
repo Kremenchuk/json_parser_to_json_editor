@@ -9,6 +9,12 @@
     "auto_create": true,
     "list": [
       {
+        "enum": {
+          "field": "type",
+          "value": ["text", "price", "multi_select", "numeric", "date", "drop_down"]
+        }
+      },
+      {
         "name": "Размер листа",
         "code": "razmer",
         "type": "text"
