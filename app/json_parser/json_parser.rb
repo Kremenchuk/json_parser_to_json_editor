@@ -63,15 +63,15 @@ class JsonParser
   def create_json_seeds(incoming_json)
     if path_to_enum[:path_to_enum].present?
       path_to_enum[:path_to_enum].each do |path_elements|
-
+        eval("incoming_json" + path_elements)
       end
     end
   end
-  foo = nil
-  eval 'foo = "bar"'
-  foo  #=> "bar"
-  binding.local_variable_set :foo, 'baz'
-  foo
+  # foo = nil
+  # eval 'foo = "bar"'
+  # foo  #=> "bar"
+  # binding.local_variable_set :foo, 'baz'
+  # foo
 
   # def create_json_seeds(incoming_json)
   #   if path_to_enum[:path_to_enum].present?
