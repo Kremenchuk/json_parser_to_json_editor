@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 
   def parser
     incoming_json = JSON.parse(File.open(Rails.root.join('db', 'csv_little.json')).read)
-    value, seeds = JsonParser.parse_json(incoming_json, 'Title')
+    value, seeds = JsonParser.new.parse_json(incoming_json, 'Title')
     respond_to do |format|
       format.json {render json: [value, seeds], status: 200 }
     end

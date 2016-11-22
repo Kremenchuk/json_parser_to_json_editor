@@ -1,15 +1,19 @@
-module JsonParser
+class JsonParser
   attr_accessor :path_to_enum
 
-  def self.parse_json(incoming_json, title)
+  def initialize
     @path_to_enum = Hash.new
+    path_to_enum[:path_to_enum] = Array.new
+  end
+
+  def parse_json(incoming_json, title)
     schema = create_json_schema(incoming_json, title)
     seeds = create_json_seeds(incoming_json)
     return [schema, incoming_json]
   end
 
 
-  def self.create_json_schema(incoming_json, parent_name)
+  def create_json_schema(incoming_json, parent_name)
     {
         type: "object",
         title: parent_name,
@@ -18,10 +22,10 @@ module JsonParser
   end
 
 
-  def self.create_slave_json(key, tree_element, parent = nil, enum_field = nil, enum_value = nil)
+  def create_slave_json(key, tree_element, parent = nil, enum_field = nil, enum_value = nil)
     if parent.present? && parent != path_to_enum[:old_parent]
       path_to_enum[:old_parent] = parent
-      path_to_enum[:path] = path_to_enum[:path].to_s + parent.to_s
+      path_to_enum[:path] = path_to_enum[:path].to_s + "['" + parent.to_s + "']"
     elsif parent.nil?
       path_to_enum[:old_parent] = nil
       path_to_enum[:path] = nil
@@ -56,25 +60,51 @@ module JsonParser
   end
 
 
-  def self.create_json_seeds(incoming_json)
-    @seeds = incoming_json
+  def create_json_seeds(incoming_json)
     if path_to_enum[:path_to_enum].present?
       path_to_enum[:path_to_enum].each do |path_elements|
-        path_elements.split('/').each do |path_element|
-          delete_enum_element()
-        end
+
       end
     end
   end
+  foo = nil
+  eval 'foo = "bar"'
+  foo  #=> "bar"
+  binding.local_variable_set :foo, 'baz'
+  foo
 
-  def delete_enum_element()
+  # def create_json_seeds(incoming_json)
+  #   if path_to_enum[:path_to_enum].present?
+  #     path_to_enum[:path_to_enum].each do |path_elements|
+  #       enum_data = delete_enum_element(incoming_json, path_elements[1..-1])
+  #       if enum_data.is_a? Array
+  #         enum_data.delete_at(0)
+  #         a=2
+  #       end
+  #     end
+  #   end
+  #   a=2
+  # end
+  #
+  # def delete_enum_element(incoming_json, *key)
+  #   from_hash_by_path(incoming_json, key.collect{|i| i.to_s.split('.')}.flatten)
+  # end
+  #
+  # def from_hash_by_path(hash, path)
+  #   begin
+  #     path.inject(hash) do |acc, value|
+  #       acc[value]
+  #     end
+  #   rescue
+  #     nil
+  #   end
+  # end
 
-  end
 
 
 private
 
-  def self.single_element(key, tree_element, enum_field = nil, enum_value = nil, element_type = nil)
+  def single_element(key, tree_element, enum_field = nil, enum_value = nil, element_type = nil)
     if enum_field.present? && key == enum_field
       {
           "#{key}": {
@@ -94,7 +124,7 @@ private
 
   end
 
-  def self.hash_element_type(key, tree_element, enum_field = nil, enum_value = nil)
+  def hash_element_type(key, tree_element, enum_field = nil, enum_value = nil)
     {
         "#{key}": {
             type: "object",
@@ -103,7 +133,7 @@ private
     }
   end
 
-  def self.array_element_type(key, tree_element,  enum_field = nil, enum_value = nil)
+  def array_element_type(key, tree_element,  enum_field = nil, enum_value = nil)
     {
         "#{key}": {
             type: "array",
@@ -122,7 +152,7 @@ private
   end
 
 
-  def self.return_element_type(element_type)
+  def return_element_type(element_type)
     case element_type
       when 'Fixnum'
         "integer"
