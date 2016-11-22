@@ -2,8 +2,10 @@
 %p
   =link_to 'Parse json', parser_path, remote: true, id: 'link_to_parse'
 
-#editor_holder
+= form_tag save_json_path, method: :get, remote: true do
+  #editor_holder
 
+  = submit_tag 'submit', remote: true
 
 :coffee
   $(document).ready ->
@@ -15,7 +17,7 @@
       schema: data[0],
       startval: data[1],
       disable_properties: true,
-      disable_edit_json: true,
+      #disable_edit_json: true,
       disable_array_reorder: true,
       })
     ).on "ajax:error", (e, xhr, status, error) ->

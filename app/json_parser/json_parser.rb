@@ -63,43 +63,16 @@ class JsonParser
   def create_json_seeds(incoming_json)
     if path_to_enum[:path_to_enum].present?
       path_to_enum[:path_to_enum].each do |path_elements|
-        eval("incoming_json" + path_elements)
+        if eval("incoming_json" + path_elements).is_a? Array
+          eval("incoming_json" + path_elements).delete_at(0)
+        end
+        if eval("incoming_json" + path_elements).is_a? Hash
+          eval("incoming_json" + path_elements)['enum'] = nil
+          eval("incoming_json" + path_elements).delete('enum')
+        end
       end
     end
   end
-  # foo = nil
-  # eval 'foo = "bar"'
-  # foo  #=> "bar"
-  # binding.local_variable_set :foo, 'baz'
-  # foo
-
-  # def create_json_seeds(incoming_json)
-  #   if path_to_enum[:path_to_enum].present?
-  #     path_to_enum[:path_to_enum].each do |path_elements|
-  #       enum_data = delete_enum_element(incoming_json, path_elements[1..-1])
-  #       if enum_data.is_a? Array
-  #         enum_data.delete_at(0)
-  #         a=2
-  #       end
-  #     end
-  #   end
-  #   a=2
-  # end
-  #
-  # def delete_enum_element(incoming_json, *key)
-  #   from_hash_by_path(incoming_json, key.collect{|i| i.to_s.split('.')}.flatten)
-  # end
-  #
-  # def from_hash_by_path(hash, path)
-  #   begin
-  #     path.inject(hash) do |acc, value|
-  #       acc[value]
-  #     end
-  #   rescue
-  #     nil
-  #   end
-  # end
-
 
 
 private

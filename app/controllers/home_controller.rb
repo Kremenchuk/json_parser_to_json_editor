@@ -10,4 +10,8 @@ class HomeController < ApplicationController
       format.json {render json: [value, seeds], status: 200 }
     end
   end
+
+  def save_json
+    a=2
+  end
 end
