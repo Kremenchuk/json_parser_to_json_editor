@@ -9,7 +9,7 @@ class JsonParser
   def parse_json(incoming_json, title)
     schema = create_json_schema(incoming_json, title)
     seeds = create_json_seeds(incoming_json)
-    return [schema, incoming_json]
+    return [schema, seeds]
   end
 
 
@@ -60,17 +60,19 @@ class JsonParser
   end
 
 
-  def create_json_seeds(incoming_json)
+  def create_json_seeds(seeds)
     if path_to_enum[:path_to_enum].present?
       path_to_enum[:path_to_enum].each do |path_elements|
-        if eval("incoming_json" + path_elements).is_a? Array
-          eval("incoming_json" + path_elements).delete_at(0)
+        if eval("seeds" + path_elements).is_a? Array
+          eval("seeds" + path_elements).delete_at(0)
         end
-        if eval("incoming_json" + path_elements).is_a? Hash
-          eval("incoming_json" + path_elements)['enum'] = nil
-          eval("incoming_json" + path_elements).delete('enum')
+        if eval("seeds" + path_elements).is_a? Hash
+          eval("seeds" + path_elements)['enum'] = nil
+          eval("seeds" + path_elements).delete('enum')
         end
       end
+    else
+      seeds
     end
   end
 

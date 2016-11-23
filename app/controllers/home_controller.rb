@@ -1,3 +1,5 @@
+require 'json_parser/json_parser'
+
 class HomeController < ApplicationController
 
   def index
